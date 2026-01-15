@@ -9,7 +9,7 @@ public class Display_Engine {
             for (int r = 0; r < board.getRows(); r++) {
                 for (int c = 0; c < board.getCols(); c++) {
                     // Text representation: 1 for Alive, 0 for Dead
-                    System.out.print(board.getCells(r, c) == 1 ? "1 " : "0 ");
+                    System.out.print(board.getCells(r, c) == 1 ? " *" : "0 ");
                 }
                 System.out.println();
             }
