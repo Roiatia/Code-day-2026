@@ -20,11 +20,11 @@ public class Board {
 
     }
 
-    public int getRows(int rows) {
+    public int getRows() {
         return grid.length;
     }
 
-    public int getCols(int cols) {
+    public int getCols() {
         return grid[0].length;
     }
 }
