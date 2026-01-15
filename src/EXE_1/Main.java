@@ -4,11 +4,15 @@ import static EXE_1.PrintBoard.genBoard;
 
 public class Main {
     public static void main(String[] args) {
-        int[][] mat = new int[5][5];
-        genBoard(mat);
-        PrintBoard.printMat(mat);
+        PrintBoard board = new PrintBoard();
+        board.init();
+        int[][] mat = board.getMat();
+        System.out.println("Generated Board:");
+        board.printMat(mat);
+
         FindIsland finder = new FindIsland();
         finder.findIsland(mat);
-        System.out.println("Number of islands: " + finder.getCountIslands());
+        int islandCount = finder.getCountIslands();
+        System.out.println("Number of islands found: " + islandCount);
     }
 }

@@ -3,12 +3,16 @@ package EXE_1;
 public class FindIsland {
     private int countIslands = 0;
 
+    // finds islands in a given matrix
     public void findIsland(int[][] mat) {
+        this.countIslands = 0;
         boolean[][] found = new boolean[mat.length][mat[0].length];
         for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; i < mat[i].length; j++) {
+            for (int j = 0; j < mat[i].length ; j++) {
                 if (mat[i][j] == 1 && !found[i][j]) {
-                    countIslands++;
+                    countIslands++; // If we find a land cell that hasn't been found yet
+
+                    checkNeighbors(mat, found, i, j); // Check all connected land cells
 
                 }
             }
@@ -23,10 +27,12 @@ public class FindIsland {
                 return;
             }
             found[i][j] = true;
-            checkNeighbors(mat, found, i - 1, j);
-            checkNeighbors(mat, found, i + 1, j);
-            checkNeighbors(mat, found, i, j - 1);
-            checkNeighbors(mat, found, i, j + 1);
+            // Recursively check all four neighbors
+            // in all directions
+            checkNeighbors(mat, found, i - 1, j); // up
+            checkNeighbors(mat, found, i + 1, j); // down
+            checkNeighbors(mat, found, i, j - 1); // left
+            checkNeighbors(mat, found, i, j + 1);   // right
         }
 
 
